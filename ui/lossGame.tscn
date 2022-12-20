@@ -1,0 +1,309 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprits/img_buttons/exit.png" type="Texture" id=2]
+[ext_resource path="res://Sprits/img_buttons/exitPressed.png" type="Texture" id=3]
+[ext_resource path="res://Sprits/img_buttons/replay.png" type="Texture" id=4]
+[ext_resource path="res://Sprits/img_buttons/relpayPressed.png" type="Texture" id=5]
+[ext_resource path="res://Sprits/fonts/Cookiss.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="GDScript" id=2]
+script/source = "#lossGame.gd
+extends CanvasLayer
+
+onready var plyr = get_parent()
+
+
+
+func _on_BuQuit_pressed():
+	get_tree().change_scene(\"res://MainMenu.tscn\")
+	get_tree().paused = false
+
+func _on_BuContinue_pressed():
+	get_tree().paused = false
+
+	if(plyr.bg_music == 1):
+		plyr.get_node(\"MainMusic\").stream_paused = false
+	else:
+		plyr.get_node(\"MainMusic\").stream_paused = true
+	$Container.hide()
+
+func _on_Animation_animation_finished(anim_name):
+	$Animation.play(\"RESET\")
+	var myx = get_viewport().get_visible_rect().size.x
+	var myy = get_viewport().get_visible_rect().size.y
+	$Container.rect_size.x = myx
+	$Container.rect_size.y = myy
+
+
+
+
+
+
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Container:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Container:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Container:anchor_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Container:anchor_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Container:anchor_right")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Container:anchor_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Container:size_flags_horizontal")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Container:size_flags_vertical")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "slider"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 110 ), Vector2( 1024, 600 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Container:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Container:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[node name="lossGame" type="CanvasLayer"]
+script = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Container" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 600.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullBg" type="ColorRect" parent="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.929412, 0.0823529, 0.0823529, 0.152941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerMenu" type="MarginContainer" parent="Container"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -250.0
+margin_right = 250.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menuBg" type="ColorRect" parent="Container/centerMenu"]
+margin_right = 500.0
+margin_bottom = 500.0
+mouse_filter = 1
+color = Color( 0.0392157, 0.0901961, 0.207843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Container/centerMenu"]
+use_parent_material = true
+margin_right = 500.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/centerMenu/CenterContainer"]
+margin_left = 156.0
+margin_top = 205.0
+margin_right = 344.0
+margin_bottom = 294.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/centerMenu/CenterContainer/MarginContainer"]
+margin_right = 188.0
+margin_bottom = 89.0
+
+[node name="Label" type="Label" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer"]
+margin_right = 188.0
+margin_bottom = 29.0
+size_flags_stretch_ratio = 1.41
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "you loss game"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="GridContainer" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 188.0
+margin_bottom = 89.0
+columns = 2
+
+[node name="BuQuit" type="TextureButton" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+pause_mode = 2
+margin_right = 92.0
+margin_bottom = 56.0
+size_flags_horizontal = 2
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+
+[node name="BuContinue" type="TextureButton" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 188.0
+margin_bottom = 56.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/RESET = SubResource( 3 )
+anims/slider = SubResource( 4 )
+
+[connection signal="pressed" from="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer/BuQuit" to="." method="_on_BuQuit_pressed"]
+[connection signal="pressed" from="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer/BuContinue" to="." method="_on_BuContinue_pressed"]
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

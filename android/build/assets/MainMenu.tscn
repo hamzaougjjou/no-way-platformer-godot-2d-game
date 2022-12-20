@@ -1,0 +1,1076 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprits/img_buttons/play_pressed.png" type="Texture" id=2]
+[ext_resource path="res://Sprits/img_buttons/continue_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Sprits/img_buttons/play.png" type="Texture" id=4]
+[ext_resource path="res://Sprits/img_buttons/icons/music.png" type="Texture" id=5]
+[ext_resource path="res://Sprits/fonts/Anton-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Sprits/img_buttons/icons/share.png" type="Texture" id=7]
+[ext_resource path="res://Sprits/img_buttons/continue.png" type="Texture" id=8]
+[ext_resource path="res://levelLocked.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprits/player/Idle0.png" type="Texture" id=10]
+[ext_resource path="res://ui/quitGame.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprits/img_buttons/quit.png" type="Texture" id=12]
+[ext_resource path="res://Sprits/img_buttons/quit_pressed.png" type="Texture" id=13]
+[ext_resource path="res://ui/musucSettings.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/MainMenuMusicSettings.gd" type="Script" id=15]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=16]
+[ext_resource path="res://audios/homeMusic.wav" type="AudioStream" id=17]
+[ext_resource path="res://audios/click.wav" type="AudioStream" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 41
+outline_color = Color( 0.109804, 0.160784, 0.929412, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Sprits/fonts/Ardillah Kafi.otf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.2184, 0.231573, 0.26, 0.458824 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Sprits/fonts/Cookiss.otf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 35
+font_data = SubResource( 5 )
+
+[node name="MainMenu" type="CanvasLayer"]
+pause_mode = 1
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0392157, 0.0901961, 0.207843, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer3" type="GridContainer" parent="."]
+anchor_right = 0.234
+anchor_bottom = 0.105
+margin_right = 0.384003
+margin_bottom = 3.8147e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer3"]
+margin_right = 240.0
+margin_bottom = 63.0
+
+[node name="Label" type="Label" parent="GridContainer3/HBoxContainer"]
+margin_right = 216.0
+margin_bottom = 63.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " heigh score "
+
+[node name="HeightScore" type="Label" parent="GridContainer3/HBoxContainer"]
+margin_left = 220.0
+margin_right = 240.0
+margin_bottom = 63.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -204.0
+margin_bottom = 100.0
+rect_scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer2"]
+margin_right = 204.0
+margin_bottom = 100.0
+
+[node name="soundsStatButton" type="TextureButton" parent="GridContainer2/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 5 )
+
+[node name="ShareGame" type="TextureButton" parent="GridContainer2/HBoxContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 7 )
+
+[node name="GridContainer4" type="GridContainer" parent="."]
+anchor_top = 0.155
+anchor_right = 1.0
+anchor_bottom = 0.348
+margin_bottom = 0.199982
+rect_min_size = Vector2( 1024, 62 )
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="GridContainer4"]
+margin_bottom = 60.0
+size_flags_horizontal = 2
+
+[node name="Sprite" type="Sprite" parent="GridContainer4/Control"]
+position = Vector2( 55.8614, 57.2757 )
+scale = Vector2( 1.68501, 1.68501 )
+texture = ExtResource( 10 )
+
+[node name="gameName" type="Label" parent="GridContainer4"]
+margin_left = 296.0
+margin_right = 731.0
+margin_bottom = 60.0
+size_flags_horizontal = 7
+size_flags_vertical = 1
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.815686, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "No way platformer"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_top = 0.442
+anchor_right = 1.0
+anchor_bottom = 0.557
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="TextureButton" parent="GridContainer"]
+margin_left = 73.0
+margin_right = 165.0
+margin_bottom = 56.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_left = 243.0
+margin_right = 537.0
+margin_bottom = 60.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0.247059, 0.972549, 0.0666667, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.815686, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "chose a level"
+align = 1
+
+[node name="play" type="TextureButton" parent="GridContainer"]
+margin_left = 614.0
+margin_right = 706.0
+margin_bottom = 56.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="buContinue" type="TextureButton" parent="GridContainer"]
+margin_left = 857.0
+margin_right = 949.0
+margin_bottom = 56.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+
+[node name="LeftPanel" type="Panel" parent="."]
+anchor_top = 0.56
+anchor_right = 1.0
+anchor_bottom = 1.002
+margin_bottom = -0.200073
+rect_min_size = Vector2( 265, 0 )
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LeftPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 265 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levles" type="GridContainer" parent="LeftPanel/ScrollContainer"]
+margin_right = 1012.0
+margin_bottom = 2274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 6
+
+[node name="L1" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_right = 132.0
+size_flags_vertical = 4
+
+[node name="L2" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_right = 301.0
+size_flags_vertical = 4
+
+[node name="L3" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_right = 470.0
+size_flags_vertical = 4
+
+[node name="L4" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_right = 639.0
+size_flags_vertical = 4
+
+[node name="L5" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_right = 808.0
+size_flags_vertical = 4
+
+[node name="L6" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_right = 977.0
+size_flags_vertical = 4
+
+[node name="L7" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 134.0
+margin_right = 132.0
+margin_bottom = 264.0
+size_flags_vertical = 4
+
+[node name="L8" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 134.0
+margin_right = 301.0
+margin_bottom = 264.0
+size_flags_vertical = 4
+
+[node name="L9" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 134.0
+margin_right = 470.0
+margin_bottom = 264.0
+size_flags_vertical = 4
+
+[node name="L10" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 134.0
+margin_right = 639.0
+margin_bottom = 264.0
+size_flags_vertical = 4
+
+[node name="L11" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 134.0
+margin_right = 808.0
+margin_bottom = 264.0
+size_flags_vertical = 4
+
+[node name="L12" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 134.0
+margin_right = 977.0
+margin_bottom = 264.0
+size_flags_vertical = 4
+
+[node name="L13" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 268.0
+margin_right = 132.0
+margin_bottom = 398.0
+size_flags_vertical = 4
+
+[node name="L14" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 268.0
+margin_right = 301.0
+margin_bottom = 398.0
+size_flags_vertical = 4
+
+[node name="L15" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 268.0
+margin_right = 470.0
+margin_bottom = 398.0
+size_flags_vertical = 4
+
+[node name="L16" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 268.0
+margin_right = 639.0
+margin_bottom = 398.0
+size_flags_vertical = 4
+
+[node name="L17" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 268.0
+margin_right = 808.0
+margin_bottom = 398.0
+size_flags_vertical = 4
+
+[node name="L18" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 268.0
+margin_right = 977.0
+margin_bottom = 398.0
+size_flags_vertical = 4
+
+[node name="L19" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 402.0
+margin_right = 132.0
+margin_bottom = 532.0
+size_flags_vertical = 4
+
+[node name="L20" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 402.0
+margin_right = 301.0
+margin_bottom = 532.0
+size_flags_vertical = 4
+
+[node name="L21" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 402.0
+margin_right = 470.0
+margin_bottom = 532.0
+size_flags_vertical = 4
+
+[node name="L22" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 402.0
+margin_right = 639.0
+margin_bottom = 532.0
+size_flags_vertical = 4
+
+[node name="L23" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 402.0
+margin_right = 808.0
+margin_bottom = 532.0
+size_flags_vertical = 4
+
+[node name="L24" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 402.0
+margin_right = 977.0
+margin_bottom = 532.0
+size_flags_vertical = 4
+
+[node name="L25" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 536.0
+margin_right = 132.0
+margin_bottom = 666.0
+size_flags_vertical = 4
+
+[node name="L26" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 536.0
+margin_right = 301.0
+margin_bottom = 666.0
+size_flags_vertical = 4
+
+[node name="L27" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 536.0
+margin_right = 470.0
+margin_bottom = 666.0
+size_flags_vertical = 4
+
+[node name="L28" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 536.0
+margin_right = 639.0
+margin_bottom = 666.0
+size_flags_vertical = 4
+
+[node name="L29" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 536.0
+margin_right = 808.0
+margin_bottom = 666.0
+size_flags_vertical = 4
+
+[node name="L30" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 536.0
+margin_right = 977.0
+margin_bottom = 666.0
+size_flags_vertical = 4
+
+[node name="L31" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 670.0
+margin_right = 132.0
+margin_bottom = 800.0
+size_flags_vertical = 4
+
+[node name="L32" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 670.0
+margin_right = 301.0
+margin_bottom = 800.0
+size_flags_vertical = 4
+
+[node name="L33" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 670.0
+margin_right = 470.0
+margin_bottom = 800.0
+size_flags_vertical = 4
+
+[node name="L34" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 670.0
+margin_right = 639.0
+margin_bottom = 800.0
+size_flags_vertical = 4
+
+[node name="L35" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 670.0
+margin_right = 808.0
+margin_bottom = 800.0
+size_flags_vertical = 4
+
+[node name="L36" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 670.0
+margin_right = 977.0
+margin_bottom = 800.0
+size_flags_vertical = 4
+
+[node name="L37" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 804.0
+margin_right = 132.0
+margin_bottom = 934.0
+size_flags_vertical = 4
+
+[node name="L38" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 804.0
+margin_right = 301.0
+margin_bottom = 934.0
+size_flags_vertical = 4
+
+[node name="L39" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 804.0
+margin_right = 470.0
+margin_bottom = 934.0
+size_flags_vertical = 4
+
+[node name="L40" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 804.0
+margin_right = 639.0
+margin_bottom = 934.0
+size_flags_vertical = 4
+
+[node name="L41" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 804.0
+margin_right = 808.0
+margin_bottom = 934.0
+size_flags_vertical = 4
+
+[node name="L42" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 804.0
+margin_right = 977.0
+margin_bottom = 934.0
+size_flags_vertical = 4
+
+[node name="L43" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 938.0
+margin_right = 132.0
+margin_bottom = 1068.0
+size_flags_vertical = 4
+
+[node name="L44" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 938.0
+margin_right = 301.0
+margin_bottom = 1068.0
+size_flags_vertical = 4
+
+[node name="L45" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 938.0
+margin_right = 470.0
+margin_bottom = 1068.0
+size_flags_vertical = 4
+
+[node name="L46" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 938.0
+margin_right = 639.0
+margin_bottom = 1068.0
+size_flags_vertical = 4
+
+[node name="L47" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 938.0
+margin_right = 808.0
+margin_bottom = 1068.0
+size_flags_vertical = 4
+
+[node name="L48" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 938.0
+margin_right = 977.0
+margin_bottom = 1068.0
+size_flags_vertical = 4
+
+[node name="L49" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1072.0
+margin_right = 132.0
+margin_bottom = 1202.0
+size_flags_vertical = 4
+
+[node name="L50" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1072.0
+margin_right = 301.0
+margin_bottom = 1202.0
+size_flags_vertical = 4
+
+[node name="L51" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1072.0
+margin_right = 470.0
+margin_bottom = 1202.0
+size_flags_vertical = 4
+
+[node name="L52" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1072.0
+margin_right = 639.0
+margin_bottom = 1202.0
+size_flags_vertical = 4
+
+[node name="L53" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1072.0
+margin_right = 808.0
+margin_bottom = 1202.0
+size_flags_vertical = 4
+
+[node name="L54" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1072.0
+margin_right = 977.0
+margin_bottom = 1202.0
+size_flags_vertical = 4
+
+[node name="L55" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1206.0
+margin_right = 132.0
+margin_bottom = 1336.0
+size_flags_vertical = 4
+
+[node name="L56" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1206.0
+margin_right = 301.0
+margin_bottom = 1336.0
+size_flags_vertical = 4
+
+[node name="L57" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1206.0
+margin_right = 470.0
+margin_bottom = 1336.0
+size_flags_vertical = 4
+
+[node name="L58" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1206.0
+margin_right = 639.0
+margin_bottom = 1336.0
+size_flags_vertical = 4
+
+[node name="L59" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1206.0
+margin_right = 808.0
+margin_bottom = 1336.0
+size_flags_vertical = 4
+
+[node name="L60" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1206.0
+margin_right = 977.0
+margin_bottom = 1336.0
+size_flags_vertical = 4
+
+[node name="L61" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1340.0
+margin_right = 132.0
+margin_bottom = 1470.0
+size_flags_vertical = 4
+
+[node name="L62" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1340.0
+margin_right = 301.0
+margin_bottom = 1470.0
+size_flags_vertical = 4
+
+[node name="L63" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1340.0
+margin_right = 470.0
+margin_bottom = 1470.0
+size_flags_vertical = 4
+
+[node name="L64" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1340.0
+margin_right = 639.0
+margin_bottom = 1470.0
+size_flags_vertical = 4
+
+[node name="L65" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1340.0
+margin_right = 808.0
+margin_bottom = 1470.0
+size_flags_vertical = 4
+
+[node name="L66" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1340.0
+margin_right = 977.0
+margin_bottom = 1470.0
+size_flags_vertical = 4
+
+[node name="L67" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1474.0
+margin_right = 132.0
+margin_bottom = 1604.0
+size_flags_vertical = 4
+
+[node name="L68" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1474.0
+margin_right = 301.0
+margin_bottom = 1604.0
+size_flags_vertical = 4
+
+[node name="L69" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1474.0
+margin_right = 470.0
+margin_bottom = 1604.0
+size_flags_vertical = 4
+
+[node name="L70" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1474.0
+margin_right = 639.0
+margin_bottom = 1604.0
+size_flags_vertical = 4
+
+[node name="L71" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1474.0
+margin_right = 808.0
+margin_bottom = 1604.0
+size_flags_vertical = 4
+
+[node name="L72" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1474.0
+margin_right = 977.0
+margin_bottom = 1604.0
+size_flags_vertical = 4
+
+[node name="L73" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1608.0
+margin_right = 132.0
+margin_bottom = 1738.0
+size_flags_vertical = 4
+
+[node name="L74" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1608.0
+margin_right = 301.0
+margin_bottom = 1738.0
+size_flags_vertical = 4
+
+[node name="L75" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1608.0
+margin_right = 470.0
+margin_bottom = 1738.0
+size_flags_vertical = 4
+
+[node name="L76" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1608.0
+margin_right = 639.0
+margin_bottom = 1738.0
+size_flags_vertical = 4
+
+[node name="L77" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1608.0
+margin_right = 808.0
+margin_bottom = 1738.0
+size_flags_vertical = 4
+
+[node name="L78" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1608.0
+margin_right = 977.0
+margin_bottom = 1738.0
+size_flags_vertical = 4
+
+[node name="L79" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1742.0
+margin_right = 132.0
+margin_bottom = 1872.0
+size_flags_vertical = 4
+
+[node name="L80" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1742.0
+margin_right = 301.0
+margin_bottom = 1872.0
+size_flags_vertical = 4
+
+[node name="L81" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1742.0
+margin_right = 470.0
+margin_bottom = 1872.0
+size_flags_vertical = 4
+
+[node name="L82" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1742.0
+margin_right = 639.0
+margin_bottom = 1872.0
+size_flags_vertical = 4
+
+[node name="L83" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1742.0
+margin_right = 808.0
+margin_bottom = 1872.0
+size_flags_vertical = 4
+
+[node name="L84" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1742.0
+margin_right = 977.0
+margin_bottom = 1872.0
+size_flags_vertical = 4
+
+[node name="L85" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 1876.0
+margin_right = 132.0
+margin_bottom = 2006.0
+size_flags_vertical = 4
+
+[node name="L86" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 1876.0
+margin_right = 301.0
+margin_bottom = 2006.0
+size_flags_vertical = 4
+
+[node name="L87" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 1876.0
+margin_right = 470.0
+margin_bottom = 2006.0
+size_flags_vertical = 4
+
+[node name="L88" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 1876.0
+margin_right = 639.0
+margin_bottom = 2006.0
+size_flags_vertical = 4
+
+[node name="L89" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 1876.0
+margin_right = 808.0
+margin_bottom = 2006.0
+size_flags_vertical = 4
+
+[node name="L90" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 1876.0
+margin_right = 977.0
+margin_bottom = 2006.0
+size_flags_vertical = 4
+
+[node name="L91" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 2010.0
+margin_right = 132.0
+margin_bottom = 2140.0
+size_flags_vertical = 4
+
+[node name="L92" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 2010.0
+margin_right = 301.0
+margin_bottom = 2140.0
+size_flags_vertical = 4
+
+[node name="L93" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 2010.0
+margin_right = 470.0
+margin_bottom = 2140.0
+size_flags_vertical = 4
+
+[node name="L94" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 2010.0
+margin_right = 639.0
+margin_bottom = 2140.0
+size_flags_vertical = 4
+
+[node name="L95" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 708.0
+margin_top = 2010.0
+margin_right = 808.0
+margin_bottom = 2140.0
+size_flags_vertical = 4
+
+[node name="L96" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 877.0
+margin_top = 2010.0
+margin_right = 977.0
+margin_bottom = 2140.0
+size_flags_vertical = 4
+
+[node name="L97" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 32.0
+margin_top = 2144.0
+margin_right = 132.0
+margin_bottom = 2274.0
+size_flags_vertical = 4
+
+[node name="L98" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 201.0
+margin_top = 2144.0
+margin_right = 301.0
+margin_bottom = 2274.0
+size_flags_vertical = 4
+
+[node name="L99" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 370.0
+margin_top = 2144.0
+margin_right = 470.0
+margin_bottom = 2274.0
+size_flags_vertical = 4
+
+[node name="L100" parent="LeftPanel/ScrollContainer/levles" groups=["BuLevels"] instance=ExtResource( 9 )]
+margin_left = 539.0
+margin_top = 2144.0
+margin_right = 639.0
+margin_bottom = 2274.0
+size_flags_vertical = 4
+
+[node name="quitGame" parent="." instance=ExtResource( 11 )]
+
+[node name="lvlUnluckedMsg" type="Control" parent="."]
+visible = false
+anchor_left = 0.333
+anchor_top = 0.907
+anchor_right = 0.667
+anchor_bottom = 0.973
+margin_left = -0.492004
+margin_top = -0.200012
+margin_right = 0.491943
+margin_bottom = 0.199951
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="lvlUnluckedMsg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="lvlUnluckedMsg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.913725, 0.0745098, 0.0745098, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "this level is unlucked"
+align = 1
+
+[node name="musucSettings" parent="." instance=ExtResource( 14 )]
+margin_right = 0.0
+margin_bottom = 0.0
+script = ExtResource( 15 )
+
+[node name="homeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -15.0
+pitch_scale = 0.8
+
+[node name="BtnsClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 16 )
+banner_size = "BANNER"
+banner_id = "ca-app-pub-8954554176377739/6173468983"
+
+[connection signal="tree_exited" from="." to="." method="_on_MainMenu_tree_exited"]
+[connection signal="pressed" from="GridContainer2/HBoxContainer/soundsStatButton" to="." method="_on_all_botton_pressed"]
+[connection signal="pressed" from="GridContainer2/HBoxContainer/soundsStatButton" to="." method="_on_soundsStatButton_pressed"]
+[connection signal="pressed" from="GridContainer2/HBoxContainer/ShareGame" to="." method="_on_all_botton_pressed"]
+[connection signal="pressed" from="GridContainer2/HBoxContainer/ShareGame" to="." method="_on_ShareGame_pressed"]
+[connection signal="pressed" from="GridContainer/exit" to="." method="_on_all_botton_pressed"]
+[connection signal="pressed" from="GridContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="GridContainer/play" to="." method="_on_all_botton_pressed"]
+[connection signal="pressed" from="GridContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/buContinue" to="." method="_on_all_botton_pressed"]
+[connection signal="pressed" from="GridContainer/buContinue" to="." method="_on_buContinue_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L1" to="." method="_on_L1_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L2" to="." method="_on_L2_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L3" to="." method="_on_L3_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L4" to="." method="_on_L4_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L5" to="." method="_on_L5_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L6" to="." method="_on_L6_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L7" to="." method="_on_L7_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L8" to="." method="_on_L8_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L9" to="." method="_on_L9_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L10" to="." method="_on_L10_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L11" to="." method="_on_L11_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L12" to="." method="_on_L12_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L13" to="." method="_on_L13_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L14" to="." method="_on_L14_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L15" to="." method="_on_L15_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L16" to="." method="_on_L16_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L17" to="." method="_on_L17_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L18" to="." method="_on_L18_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L19" to="." method="_on_L19_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L20" to="." method="_on_L20_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L21" to="." method="_on_L21_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L22" to="." method="_on_L22_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L23" to="." method="_on_L23_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L24" to="." method="_on_L24_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L25" to="." method="_on_L25_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L26" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L27" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L28" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L29" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L30" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L31" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L32" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L33" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L34" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L35" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L36" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L37" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L38" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L39" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L40" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L41" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L42" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L43" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L44" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L45" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L46" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L47" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L48" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L49" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L50" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L51" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L52" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L53" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L54" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L55" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L56" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L57" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L58" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L59" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L60" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L61" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L62" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L63" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L64" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L65" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L66" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L67" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L68" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L69" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L70" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L71" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L72" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L73" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L74" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L75" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L76" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L77" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L78" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L79" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L80" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L81" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L82" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L83" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L84" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L85" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L86" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L87" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L88" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L89" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L90" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L91" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L92" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L93" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L94" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L95" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L96" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L97" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L98" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L99" to="." method="_on_none_level_pressed"]
+[connection signal="pressed" from="LeftPanel/ScrollContainer/levles/L100" to="." method="_on_none_level_pressed"]
+[connection signal="finished" from="homeMusic" to="." method="_on_homeMusic_finished"]
+[connection signal="finished" from="BtnsClickAudio" to="." method="_on_BtnsClickAudio_finished"]
+[connection signal="banner_loaded" from="AdMob" to="." method="_on_AdMob_banner_loaded"]

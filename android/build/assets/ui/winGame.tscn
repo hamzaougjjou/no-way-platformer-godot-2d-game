@@ -1,0 +1,254 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Sprits/img_buttons/playAgainPressed.png" type="Texture" id=1]
+[ext_resource path="res://levelsCompleted/star.png" type="Texture" id=2]
+[ext_resource path="res://levelsCompleted/emptyStar.png" type="Texture" id=3]
+[ext_resource path="res://Sprits/img_buttons/playAgain.png" type="Texture" id=4]
+[ext_resource path="res://Sprits/img_buttons/next_pressed.png" type="Texture" id=5]
+[ext_resource path="res://Sprits/img_buttons/next.png" type="Texture" id=6]
+[ext_resource path="res://Sprits/fonts/Cookiss.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://ui/winGame.gd" type="Script" id=8]
+[ext_resource path="res://Sprits/coins/coin1.png" type="Texture" id=9]
+[ext_resource path="res://Sprits/coins/coin4.png" type="Texture" id=10]
+[ext_resource path="res://Sprits/coins/coin3.png" type="Texture" id=11]
+[ext_resource path="res://Sprits/coins/coin5.png" type="Texture" id=12]
+[ext_resource path="res://Sprits/coins/coin2.png" type="Texture" id=13]
+[ext_resource path="res://Sprits/coins/coin6.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 37
+extra_spacing_top = 20
+extra_spacing_bottom = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Sprits/fonts/Ardillah Kafi.otf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 49
+outline_color = Color( 1, 0, 0, 1 )
+extra_spacing_top = 8
+extra_spacing_bottom = 4
+extra_spacing_char = 2
+font_data = SubResource( 2 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "slideIn"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 220 ), Vector2( 1024, 600 ) ]
+}
+
+[node name="winGame" type="CanvasLayer"]
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Container" type="Control" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullBg" type="ColorRect" parent="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.337255, 1, 0, 0.152941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerMenu" type="MarginContainer" parent="Container"]
+pause_mode = 2
+anchor_left = 0.256
+anchor_top = 0.083
+anchor_right = 0.744
+anchor_bottom = 0.917
+margin_left = -0.144012
+margin_top = 0.199997
+margin_right = 0.143982
+margin_bottom = -0.200012
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menuBg" type="ColorRect" parent="Container/centerMenu"]
+margin_right = 500.0
+margin_bottom = 500.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Container/centerMenu"]
+use_parent_material = true
+margin_right = 500.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/centerMenu/CenterContainer"]
+margin_left = 155.0
+margin_top = 177.0
+margin_right = 345.0
+margin_bottom = 322.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/centerMenu/CenterContainer/MarginContainer"]
+margin_right = 190.0
+margin_bottom = 145.0
+
+[node name="Label" type="Label" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer"]
+margin_right = 190.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.41
+custom_colors/font_color = Color( 0.0666667, 0.454902, 0.0117647, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "YOU Win"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="GridContainer" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 190.0
+margin_bottom = 145.0
+columns = 2
+
+[node name="BuPlayAgain" type="TextureButton" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+pause_mode = 2
+margin_right = 92.0
+margin_bottom = 58.0
+size_flags_horizontal = 2
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+
+[node name="BuNextLevel" type="TextureButton" parent="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 190.0
+margin_bottom = 58.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+anchor_left = 0.255
+anchor_top = 0.09
+anchor_right = 0.745
+anchor_bottom = 0.41
+margin_left = -0.120026
+margin_top = -3.8147e-06
+margin_right = 0.119934
+margin_bottom = -8.00002
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="star1" type="Sprite" parent="Container/HBoxContainer"]
+position = Vector2( 254.719, 89.7238 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+
+[node name="star2" type="Sprite" parent="Container/HBoxContainer"]
+position = Vector2( 124.719, 119.724 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="star3" type="Sprite" parent="Container/HBoxContainer"]
+position = Vector2( 409.719, 119.724 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Estar2" type="Sprite" parent="Container/HBoxContainer"]
+position = Vector2( 124.719, 119.724 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Estar1" type="Sprite" parent="Container/HBoxContainer"]
+position = Vector2( 254.719, 89.7238 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="Estar3" type="Sprite" parent="Container/HBoxContainer"]
+position = Vector2( 409.719, 119.724 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="GridContainer" type="GridContainer" parent="Container"]
+anchor_left = 0.26
+anchor_top = 0.083
+anchor_right = 0.745
+anchor_bottom = 0.2
+margin_left = -0.240021
+margin_top = 0.199997
+margin_right = 0.119934
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coins" type="Label" parent="Container/GridContainer"]
+margin_right = 70.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Container/GridContainer"]
+pause_mode = 2
+position = Vector2( 100, 31 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/slideIn = SubResource( 6 )
+
+[connection signal="pressed" from="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer/BuPlayAgain" to="." method="_on_BuPlayAgain_pressed"]
+[connection signal="pressed" from="Container/centerMenu/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer/BuNextLevel" to="." method="_on_BuNextLevel_pressed"]
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

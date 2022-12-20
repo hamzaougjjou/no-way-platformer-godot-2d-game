@@ -1,0 +1,250 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ui/musucSettings.gd" type="Script" id=1]
+[ext_resource path="res://Sprits/img_buttons/icons/close.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Sprits/fonts/Cookiss.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 55
+extra_spacing_top = 10
+extra_spacing_bottom = 10
+font_data = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "slideIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 694, 373 ), Vector2( 1024, 600 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "slideOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ), Vector2( 0, 600 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1024, 0 ) ]
+}
+
+[node name="musucSettings" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.862745, 0.709804, 0.776471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="TextureButton" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 110.0
+margin_bottom = 113.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 5.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "audio Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -215.0
+margin_bottom = 284.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 326.0
+margin_top = 34.0
+margin_right = 697.0
+margin_bottom = 465.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 371.0
+margin_bottom = 83.0
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_right = 291.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "All"
+
+[node name="buAll" type="CheckButton" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 295.0
+margin_right = 371.0
+margin_bottom = 83.0
+
+[node name="GridContainer2" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 371.0
+margin_bottom = 170.0
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer2"]
+margin_right = 291.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "jump"
+
+[node name="buJump" type="CheckButton" parent="CenterContainer/VBoxContainer/GridContainer2"]
+margin_left = 295.0
+margin_right = 371.0
+margin_bottom = 83.0
+
+[node name="GridContainer3" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 174.0
+margin_right = 371.0
+margin_bottom = 257.0
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer3"]
+margin_right = 291.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "coin"
+
+[node name="buCoin" type="CheckButton" parent="CenterContainer/VBoxContainer/GridContainer3"]
+margin_left = 295.0
+margin_right = 371.0
+margin_bottom = 83.0
+
+[node name="GridContainer4" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 261.0
+margin_right = 371.0
+margin_bottom = 344.0
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer4"]
+margin_right = 291.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "game over"
+
+[node name="buGameOver" type="CheckButton" parent="CenterContainer/VBoxContainer/GridContainer4"]
+margin_left = 295.0
+margin_right = 371.0
+margin_bottom = 83.0
+
+[node name="GridContainer5" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 348.0
+margin_right = 371.0
+margin_bottom = 431.0
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer5"]
+margin_right = 291.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+custom_constants/line_spacing = 0
+custom_fonts/font = SubResource( 2 )
+text = "Background"
+
+[node name="buBg" type="CheckButton" parent="CenterContainer/VBoxContainer/GridContainer5"]
+margin_left = 295.0
+margin_right = 371.0
+margin_bottom = 83.0
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/slideIn = SubResource( 4 )
+anims/slideOut = SubResource( 5 )
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/buAll" to="." method="_on_buAll_pressed"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/GridContainer2/buJump" to="." method="_on_buJump_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/GridContainer3/buCoin" to="." method="_on_buCoin_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/GridContainer4/buGameOver" to="." method="_on_buGameOver_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/GridContainer5/buBg" to="." method="_on_buBg_toggled"]
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

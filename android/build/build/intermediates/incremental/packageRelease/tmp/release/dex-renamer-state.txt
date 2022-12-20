@@ -1,0 +1,4 @@
+#Tue May 10 17:27:23 WAT 2022
+base.0=C\:\\Users\\xp\\Documents\\godot\\p3\\android\\build\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

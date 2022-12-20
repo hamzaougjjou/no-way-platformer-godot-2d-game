@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bg.wav-522eff7b132e6acdbace109e9d3d7cfe.sample"
+
+[deps]
+
+source_file="res://audios/bg.wav"
+dest_files=[ "res://.import/bg.wav-522eff7b132e6acdbace109e9d3d7cfe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

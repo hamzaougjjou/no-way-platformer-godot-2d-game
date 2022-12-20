@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprits/coins/heart.png" type="Texture" id=1]
+[ext_resource path="res://Sprits/fonts/Anton-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprits/ImgControllers/previous.png" type="Texture" id=3]
+[ext_resource path="res://Health.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Health" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lvl" type="NinePatchRect" parent="."]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 9.0
+margin_bottom = 9.0
+draw_center = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="lvl"]
+margin_left = 1.0
+margin_top = -4.0
+margin_right = 85.0
+margin_bottom = 42.0
+custom_colors/font_color = Color( 0.623529, 1, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Level : "
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="level" type="Label" parent="lvl"]
+margin_left = 84.0
+margin_top = -4.0
+margin_right = 109.0
+margin_bottom = 42.0
+custom_colors/font_color = Color( 0.623529, 1, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "01"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="health_0" type="NinePatchRect" parent="."]
+margin_left = 151.475
+margin_top = 8.47488
+margin_right = 191.0
+margin_bottom = 48.4749
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="health_1" type="NinePatchRect" parent="."]
+margin_left = 194.248
+margin_top = 8.47488
+margin_right = 235.0
+margin_bottom = 48.4749
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="health_2" type="NinePatchRect" parent="."]
+margin_left = 236.359
+margin_top = 8.47487
+margin_right = 279.0
+margin_bottom = 48.4749
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="prevBtn" type="TextureButton" parent="."]
+margin_left = 18.0
+margin_top = 51.0
+margin_right = 114.0
+margin_bottom = 131.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="prevBtn" to="." method="_on_prevBtn_pressed"]

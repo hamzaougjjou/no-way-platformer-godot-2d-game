@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprits/ImgControllers/arrow.png" type="Texture" id=1]
+[ext_resource path="res://Sprits/ImgControllers/jumpPressed.png" type="Texture" id=2]
+[ext_resource path="res://Sprits/ImgControllers/jump.png" type="Texture" id=3]
+[ext_resource path="res://Sprits/ImgControllers/arrowPressed.png" type="Texture" id=4]
+
+[node name="touchControler" type="CanvasLayer"]
+
+[node name="LeftRight" type="GridContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -330.0
+margin_right = 207.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left" type="TouchScreenButton" parent="LeftRight"]
+position = Vector2( 251.544, 302.734 )
+rotation = 3.14159
+scale = Vector2( 3, 3 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 4 )
+action = "ui_left"
+
+[node name="right" type="TouchScreenButton" parent="LeftRight"]
+position = Vector2( 232.041, 96.095 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 4 )
+action = "ui_right"
+
+[node name="UpDown" type="GridContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -324.0
+margin_top = -276.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="up" type="TouchScreenButton" parent="UpDown"]
+position = Vector2( 86.8409, -115.424 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+action = "ui_up"
+
+[node name="down" type="TouchScreenButton" parent="UpDown"]
+position = Vector2( 282.551, 278.988 )
+rotation = 3.14159
+scale = Vector2( 3, 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+action = "ui_down"
